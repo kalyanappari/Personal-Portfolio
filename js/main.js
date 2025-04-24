@@ -284,3 +284,10 @@ document.addEventListener('visibilitychange', function() {
         }
     }
 });
+// Add this to your main.js
+function initChatbot() {
+    const script = document.createElement('script');
+    script.src = 'js/chatbot.js';
+    document.body.appendChild(script);
+  }
+  document.addEventListener('DOMContentLoaded', initChatbot);
