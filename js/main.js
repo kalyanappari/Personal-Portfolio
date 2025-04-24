@@ -234,3 +234,53 @@ document.addEventListener('DOMContentLoaded', function() {
     initEducationAnimations();
     // ... your other initialization code
 });
+
+// Your existing JavaScript code...
+
+// Load 3D background only on desktop
+if (window.innerWidth > 768) {
+    const script = document.createElement('script');
+    script.src = 'js/3d-background.js';
+    document.body.appendChild(script);
+}
+// Typing Animation for Name
+function typeWriter() {
+    const nameElement = document.getElementById('typing-name');
+    if (!nameElement) return;
+    
+    const fullName = "N V M Sai Kalyan";
+    let i = 0;
+    const speed = 120; // Typing speed in milliseconds (adjust as needed)
+    
+    // Clear existing content
+    nameElement.textContent = '';
+    
+    function type() {
+        if (i < fullName.length) {
+            nameElement.textContent += fullName.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            // Animation complete - remove cursor
+            nameElement.classList.add('typing-complete');
+        }
+    }
+    
+    // Start typing after 500ms delay (adjust as needed)
+    setTimeout(type, 500);
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', typeWriter);
+
+// Optional: Restart animation when tab becomes visible again
+document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) {
+        const nameElement = document.getElementById('typing-name');
+        if (nameElement) {
+            nameElement.classList.remove('typing-complete');
+            nameElement.textContent = '';
+            typeWriter();
+        }
+    }
+});
