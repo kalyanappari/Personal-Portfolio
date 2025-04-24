@@ -257,6 +257,38 @@ header {
     color: white;
     transform: translateY(-5px);
 }
+/* Typing Animation Styles */
+.typing-animation {
+    display: inline-block;
+    color: var(--primary-color);
+    position: relative;
+    min-width: 150px; /* Prevents layout shift */
+}
+
+/* Typing Animation Styles */
+.typing-cursor {
+    position: relative;
+    color: var(--primary-color);
+}
+
+.typing-cursor::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.7s infinite;
+    color: var(--primary-color);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+/* Completed State (cursor disappears) */
+.typing-complete.typing-animation::after {
+    display: none;
+}
 
 /* About Section */
 #about {
@@ -1279,3 +1311,37 @@ body.dark-theme .contact-item i {
     will-change: transform, opacity;
 }
 
+/* 3D Hero Section */
+.hero-3d {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(17, 136, 215, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%);
+}
+
+#hero-3d-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Dark mode adjustments */
+body.dark-theme #hero-3d-bg {
+    opacity: 0.2;
+}
+
+body.dark-theme .hero-3d {
+    background: linear-gradient(135deg, rgba(77, 166, 255, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+}
