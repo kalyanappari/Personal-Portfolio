@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalyan's Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header (unchanged) -->
     <header>
         <div class="container">
             <div class="header-inner">
@@ -34,12 +35,14 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="section">
+    <!-- Enhanced 3D Hero Section -->
+    <section id="home" class="hero-3d">
+        <canvas id="hero-3d-bg"></canvas>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Hi, I'm <span>N V M Sai Kalyan</span></h1>
+                    <!-- Inside your hero-text div -->
+                    <h1>Hi, I'm <span id="animated-name" class="typing-cursor"></span></h1>
                     <p>Passionate Machine Learning Engineer skilled in building and deploying intelligent models. Experienced in Python, scikit-learn, and TensorFlow, with a focus on NLP and anomaly detection. Committed to solving real-world problems through data-driven approaches.</p>
                     <div class="hero-btns">
                         <a href="https://drive.google.com/uc?export=download&id=1MQNOcsd1-OhoMxHFredWGlkovuCBInjd" class="btn btn-download" id="downloadCv" target="_blank">Download CV</a>
@@ -58,7 +61,6 @@
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
@@ -280,7 +282,6 @@
         </div>
     </section>
     
-    
 <!-- Projects Section -->
 <section id="projects" class="section">
     <div class="container">
@@ -350,7 +351,6 @@
         </div>
     </div>
 </section>
-
     <!-- Internships Section -->
 <section id="internships" class="section">
     <div class="container">
@@ -467,7 +467,8 @@
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
-
+    <script src="js/3d-background.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/typing-animation.js"></script>
 </body>
 </html>
